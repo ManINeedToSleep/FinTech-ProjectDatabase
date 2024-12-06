@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../sidebar/Sidebar';
 import styles from '../styles/dashboard.module.css';
 
 export default function Dashboard() {

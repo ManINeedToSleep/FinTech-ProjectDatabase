@@ -1,6 +1,8 @@
 import express from 'express';
-import sequelize from '../data/database'; // Import the Sequelize instance
-import User from '../data/models/User';  // Import the User model
+import _sequelize from './database.js'; // Import the Sequelize instance
+import User from './models/User.js';  // Import the User model
+
+console.log("sequelize instance:", _sequelize);
 
 const app = express();
 
