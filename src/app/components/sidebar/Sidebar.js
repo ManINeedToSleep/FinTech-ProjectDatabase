@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Add this import
 import {
   FaHome,
   FaMoneyBillWave,
@@ -9,7 +10,7 @@ import {
   FaCogs,
   FaChevronLeft,
   FaChevronRight,
-} from 'react-icons/fa'; // Import relevant icons
+} from 'react-icons/fa';
 import styles from '../styles/sidebar.module.css';
 
 const Sidebar = ({ toggleSidebar, isSidebarHidden }) => {
@@ -44,7 +45,13 @@ const Sidebar = ({ toggleSidebar, isSidebarHidden }) => {
       </nav>
 
       <div className={styles.userProfile}>
-        <img src="/img/profile.png" alt="User Profile" className={styles.profileImg} />
+        <Image
+          src="/profile.png"
+          alt="User Profile"
+          width={40}
+          height={40}
+          className={styles.profileImg}
+        />
         <p>John Doe</p>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import User from '../data/models/User';
-import Account from '../data/models/Account';
-import Transaction from '../data/models/Transaction';
+import User from './User.js';
+import Account from './Account.js';
+import Transaction from './Transaction.js';
 
 // Define relationships
 User.hasMany(Account, { foreignKey: 'userId' });

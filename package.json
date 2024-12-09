@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "nodemon server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,14 +14,15 @@
     "express": "^4.21.1",
     "mysql2": "^3.11.5",
     "next": "15.0.3",
-    "nodemon": "^3.1.7",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-icons": "^5.4.0",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "eslint-config-next": "15.0.3",
+    "nodemon": "^3.1.7"
   }
 }

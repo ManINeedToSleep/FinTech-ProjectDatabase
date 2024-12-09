@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../database.js';
-import Account from './Account'; // Import the Account model
+import sequelize from '../config/database.js';
+import Account from './Account.js'; // Import the Account model
 
 // Define the Transaction model
 const Transaction = sequelize.define('Transaction', {

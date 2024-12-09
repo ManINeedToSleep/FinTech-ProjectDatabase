@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../database.js';
-import User from './User'; // Import the User model
+import sequelize from '../config/database.js';
+import User from './User.js';
 
 // Define the Account model
 const Account = sequelize.define('Account', {
@@ -21,7 +21,7 @@ const Account = sequelize.define('Account', {
   balance: {
     type: DataTypes.FLOAT,
     allowNull: false,
-    defaultValue: 0.0,
+    defaultValue: 0,
   },
   currency: {
     type: DataTypes.STRING,
@@ -32,17 +32,9 @@ const Account = sequelize.define('Account', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: User, // Link to the User model
+      model: User,
       key: 'id',
     },
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
   },
 });
 
