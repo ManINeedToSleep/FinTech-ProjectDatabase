@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FinTech Project Database
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This project is a FinTech application built with Node.js, Express, and Sequelize ORM. It's designed to manage users, accounts, and transactions in a financial context.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Components
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Server (server.js)**: The main entry point of the application. It sets up the Express server, initializes the database connection, and defines API routes.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Database Configuration (database.js)**: Configures the Sequelize connection to the MySQL database.
 
-## Learn More
+3. **Models**: 
+   - **User.js**: Defines the User model.
+   - **Account.js**: Defines the Account model.
+   - **Transaction.js**: Defines the Transaction model.
+   - **index.js**: Sets up model associations.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Routes**:
+   - **userRoutes.js**: Defines API routes for user-related operations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup and Running
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Ensure you have Node.js and MySQL installed.
+2. Clone the repository.
+3. Run `npm install` to install dependencies.
+4. Set up your environment variables in a `.env` file (database credentials, etc.).
+5. Run `node src/server.js` to start the server.
 
-## Deploy on Vercel
+## Current Status
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is in its initial setup phase. The basic structure is in place, including:
+- Express server setup
+- Sequelize models for User, Account, and Transaction
+- Basic routing structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next steps include implementing full CRUD operations for each model, adding authentication and authorization, and expanding the API functionality.
