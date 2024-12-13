@@ -1,14 +1,16 @@
-import sequelize from '../config/database.js';
+import mysql from 'mysql2/promise';
 
-const connectToDatabase = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-    await sequelize.sync(); // This will create the tables if they don't exist
-    console.log('Models synchronized with database.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-};
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 
-export default connectToDatabase;
+export async function query(sql, params) {
+  const [results] = await pool.execute(sql, params);
+  return results;
+}

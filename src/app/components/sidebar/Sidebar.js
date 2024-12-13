@@ -1,6 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import Image from 'next/image'; // Add this import
+import styles from './sidebar.module.css';
+import UserName from '../UserName'; // Import the new component
 import {
   FaHome,
   FaMoneyBillWave,
@@ -11,14 +13,16 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from 'react-icons/fa';
-import styles from '../styles/sidebar.module.css';
 
 const Sidebar = ({ toggleSidebar, isSidebarHidden }) => {
   return (
     <div className={`${styles.sidebar} ${isSidebarHidden ? styles.hidden : ''}`}>
       <div className={styles.logo}>
         FinTech Banking
-        <button onClick={toggleSidebar} className={styles.toggleButton}>
+        <button 
+          onClick={toggleSidebar} 
+          className={`${styles.toggleButton} ${isSidebarHidden ? styles.hiddenToggle : ''}`}
+        >
           {isSidebarHidden ? <FaChevronRight /> : <FaChevronLeft />}
         </button>
       </div>
@@ -52,10 +56,12 @@ const Sidebar = ({ toggleSidebar, isSidebarHidden }) => {
           height={40}
           className={styles.profileImg}
         />
-        <p>John Doe</p>
+        <UserName /> {/* Replace the hardcoded name with this component */}
       </div>
+
     </div>
   );
 };
 
 export default Sidebar;
+

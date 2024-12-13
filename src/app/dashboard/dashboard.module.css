@@ -1,0 +1,24 @@
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  width: 100%;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 10px;
+  padding-left: 25px;
+  transition: margin-left 0.5s ease;
+  background-color: white;
+  margin-left: 250px; /* Initial margin to accommodate sidebar */
+}
+
+.expanded {
+  margin-left: 35px; /* Reduced margin when sidebar is hidden */
+}
+
+.title {
+  margin-top: 20px; /* Add some top margin to the title */
+}
+

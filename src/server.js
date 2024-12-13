@@ -1,8 +1,20 @@
 import express from 'express';
 import sequelize from './app/config/database.js';
 import { User, Account, Transaction } from './app/models/index.js';
+import cors from 'cors';
+import helmet from 'helmet';
 
 const app = express();
+
+// Use helmet to set various HTTP headers for security
+app.use(helmet());
+
+// Use cors to allow requests from localhost during development
+app.use(cors({
+  origin: 'http://localhost:3000', // Allow requests from localhost
+  methods: ['GET', 'POST'], // Specify allowed methods
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
 
 // Test database connection and synchronize models
 async function initializeDatabase() {
@@ -18,7 +30,6 @@ async function initializeDatabase() {
     process.exit(1);
   }
 }
-
 
 // Initialize database before starting the server
 initializeDatabase().then(() => {
@@ -36,3 +47,4 @@ initializeDatabase().then(() => {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 });
+

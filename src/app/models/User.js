@@ -20,6 +20,13 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      isEmail: true,
+    }
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   phoneNumber: {
     type: DataTypes.STRING,
@@ -38,5 +45,6 @@ const User = sequelize.define('User', {
     defaultValue: DataTypes.NOW,
   },
 });
+
 
 export default User;

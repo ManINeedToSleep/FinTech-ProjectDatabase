@@ -36,3 +36,5 @@ The project is in its initial setup phase. The basic structure is in place, incl
 - Basic routing structure
 
 Next steps include implementing full CRUD operations for each model, adding authentication and authorization, and expanding the API functionality.
+
+      
