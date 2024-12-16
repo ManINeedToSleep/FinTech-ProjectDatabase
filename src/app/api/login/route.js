@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { query } from '@/app/utils/db';
+import sequelize from '../../config/database.js';
+import User from '../../models/User.js';
 
 export async function POST(request) {
   try {
@@ -9,11 +10,10 @@ export async function POST(request) {
       return NextResponse.json({ message: 'Email and password are required' }, { status: 400 });
     }
 
-    // Query the database by email
-    const [user] = await query(
-      'SELECT * FROM users WHERE email = ?',
-      [identifier]
-    );
+    // Query the database by email using Sequelize model
+    const user = await User.findOne({
+      where: { email: identifier }
+    });
 
     if (!user) {
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
@@ -31,3 +31,4 @@ export async function POST(request) {
     return NextResponse.json({ message: 'An error occurred during login' }, { status: 500 });
   }
 }
+
